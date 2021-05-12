@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Four-in-row-game</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/dist/js/bootstrap.min.js">
+  </head>
+  <body>
+        <div id="wrap" style='display:none'></div>
+        <div class='login'>
+            <div class='loginName'>
+              <% if(user && user.username){ %>
+                   <header>
+                      <h2>Four-in-row-game</h2>
+                      <h3>User: <%= user.username %> &nbsp <a href="/logout">LogOut</a></h3>
+                   </header>
+                   <table>
+                     <tr>
+                       <td style="color:red"><%= message %></td>
+                     </tr>
+                     <tr>
+                       <td><input type="button" id="profile" value="Your Profile" onclick="window.location='/profile'"></td>
+                     </tr>
+                     <tr>
+                       <td><input type="button" id="history" value="Match History" onclick="window.location='/history'"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" id="start" value="Start Game" onclick="window.location='/gaming'"></td>
+                    </tr>
+                  </table>
+              <% }else{ %>
+                    <header>
+                       <h2>Four-in-row-game</h2>
+                       <h3>You have not logged in the system.</h3>
+                       <a href="/">LogIn</a>
+                       <a href="/register">Register</a>
+                   </header>
+             <% } %>
+            </div>
+        </div>
+  </body>
+</html>

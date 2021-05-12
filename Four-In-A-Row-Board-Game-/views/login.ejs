@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Four-in-row-game </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/dist/js/bootstrap.min.js">
+  </head>
+  <body>
+        <div class='login'>
+            <div class='loginName'>
+               <header>
+                  <h2>four-in-row Board Game</h2>
+              </header>
+             <form action="/loginProcess" method="post" id="loginForm" onsubmit="return validate();">
+              <table>
+                <tr>
+                  <td style="color:red"><%=message%></td>
+                </tr>
+                <tr>
+                  <td><b>Username：</b></td>
+                  <td><input type="text" id="username" name="username" placeholder="username"></td>
+                </tr>
+                <tr>
+                  <td><b>Password: </b></td>
+                  <td><input type="password" id="password" name="password" placeholder="password"></td>
+                </tr>
+					</div>
+                <tr>
+                  <td><i><a href="/reset">Reset Password</a></i></td>
+                  <td><input type="submit" value="Sign In" id="loginbtn">&nbsp&nbsp&nbsp<input type="button" value="Sign Up" onclick="window.location='/register'"></td>
+                </tr>
+              </table>
+             </form>
+            </div>
+        </div>
+        <script>
+                  function validate(){
+
+                          username = document.querySelector('input[name=username]'),
+                          password = document.querySelector('input[name=password]');
+                          
+                          if(username.value == "" || password.value == "" ){
+                              alert('Username or Password  can not be left blank.');
+                              return false;
+                          }
+
+                          return true;
+                      }
+            </script>
+  </body>
+</html>

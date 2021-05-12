@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Four-in-row-game</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/dist/js/bootstrap.min.js">
+  </head>
+  <body>
+      <div id="wrap" style='display:none'></div>
+        <div class='login'>
+            <div class='loginName'>
+              <% if(user && user.username){ %>
+                   <header>
+                      <h2><%= user.username %>, Ready to Start?</h2>
+                      <input type="hidden" id="user" value=<%= user.username %>>
+                      <input type="hidden" id="rank" value=<%= rank %>>
+                      <input type="hidden" id="credit" value=<%= credit %>>
+                      <input type="hidden" id="quit" value=<%= quit %>>
+                   </header>
+                   <table>
+                     <tr>
+                       <td>Your Current Rank: <%= rank %></td>
+                     </tr>
+                     <tr>
+                       <td>Your Current Credit: <%= credit %></td>
+                     </tr>
+                     <tr>
+                       <td style="color:red">*Warn: Once the game starts, you are not suggested to quit otherwise you will lose your credits.</td>
+                     </tr>
+                     <tr>
+                       <td><input type="button" id="start" value="Start" onclick="renderBoard()">&nbsp &nbsp<a href="/index">Back</a></td>
+                     </tr>
+                   </table>
+                   <% }else{ %>
+                         <header>
+                            <h2>Four-in-row-game</h2>
+                            <h3>You have not logged in the system.</h3>
+                            <a href="/">LogIn</a>
+                            <a href="/register">Register</a>
+                        </header>
+                  <% } %>
+            </div>
+        </div>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="../socket.io/socket.io.js"></script>
+    <script src='dist/game.js'></script>
+
+
+  </body>
+</html>
